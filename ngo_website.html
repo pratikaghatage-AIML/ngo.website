@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Asha Foundation – Lighting Lives, Building Futures</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:#1a1a1a;background:#fff}
+
+/* ─── TOKENS ─── */
+:root{
+  --green:#1B5E20;
+  --green-mid:#2E7D32;
+  --green-light:#E8F5E9;
+  --saffron:#E65100;
+  --saffron-light:#FFF3E0;
+  --earth:#5D4037;
+  --cream:#FAFAF7;
+  --border:#D7E4D7;
+  --text:#1A2E1A;
+  --text-mid:#4A5E4A;
+  --text-light:#7A8E7A;
+  --r:10px;
+  --r-sm:6px;
+  --sh:0 2px 18px rgba(27,94,32,0.10);
+  --sh-hover:0 6px 32px rgba(27,94,32,0.18);
+}
+
+/* ─── NAV ─── */
+nav{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(27,94,32,0.97);
+  backdrop-filter:blur(8px);
+  height:64px;padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-emblem{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--saffron);display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:800;color:#fff;font-family:'Playfair Display',serif;
+}
+.nav-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{
+  color:rgba(255,255,255,0.78);text-decoration:none;
+  font-size:13px;font-weight:500;padding:7px 12px;border-radius:var(--r-sm);
+  transition:background .2s,color .2s;
+}
+.nav-links a:hover{background:rgba(255,255,255,0.12);color:#fff}
+.nav-donate{
+  background:var(--saffron);color:#fff;border:none;cursor:pointer;
+  font-size:13px;font-weight:600;padding:8px 18px;border-radius:var(--r-sm);
+  text-decoration:none;transition:opacity .2s;
+}
+.nav-donate:hover{opacity:.88}
+
+/* ─── HERO ─── */
+#home{
+  min-height:90vh;display:flex;align-items:center;
+  background:linear-gradient(160deg,#1B5E20 0%,#2E7D32 45%,#1B4620 100%);
+  padding:80px 5% 64px;position:relative;overflow:hidden;
+}
+#home::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:80px;
+  background:linear-gradient(to top,#fff 0%,transparent 100%);
+  pointer-events:none;
+}
+.hero-leaf{
+  position:absolute;right:0;top:0;width:55%;height:100%;
+  display:flex;align-items:center;justify-content:flex-end;
+  padding-right:5%;pointer-events:none;
+}
+.hero-leaf-graphic{
+  width:420px;height:420px;border-radius:50% 5% 50% 5%;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:14px;padding:32px;
+}
+.hero-inner{position:relative;z-index:2;max-width:1160px;margin:auto;width:100%}
+.hero-reg{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.22);
+  color:rgba(255,255,255,0.85);font-size:12px;font-weight:600;
+  padding:5px 14px;border-radius:20px;margin-bottom:22px;letter-spacing:.4px;
+}
+h1.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,5vw,62px);font-weight:800;
+  line-height:1.12;color:#fff;max-width:620px;margin-bottom:20px;
+}
+h1.hero-title em{color:#FFCC80;font-style:normal}
+.hero-sub{
+  font-size:17px;color:rgba(255,255,255,0.75);line-height:1.75;
+  max-width:520px;margin-bottom:36px;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-saffron{
+  background:var(--saffron);color:#fff;border:none;cursor:pointer;
+  font-size:15px;font-weight:600;padding:13px 28px;border-radius:var(--r-sm);
+  text-decoration:none;transition:transform .15s,box-shadow .15s;
+}
+.btn-saffron:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(230,81,0,.35)}
+.btn-ghost{
+  background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.42);
+  cursor:pointer;font-size:15px;font-weight:600;padding:13px 28px;
+  border-radius:var(--r-sm);text-decoration:none;transition:border-color .2s,background .2s;
+}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.hero-stats{display:flex;gap:32px;margin-top:52px;flex-wrap:wrap}
+.hstat .num{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:#FFCC80}
+.hstat .lbl{font-size:12px;color:rgba(255,255,255,.60);margin-top:2px}
+
+/* ─── IMPACT STRIP ─── */
+.impact-strip{background:var(--saffron);padding:42px 5%}
+.impact-inner{max-width:1160px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.istat{text-align:center;padding:18px;border-right:1px solid rgba(255,255,255,.25)}
+.istat:last-child{border-right:none}
+.istat .num{font-family:'Playfair Display',serif;font-size:38px;font-weight:800;color:#fff}
+.istat .lbl{font-size:13px;color:rgba(255,255,255,.80);margin-top:4px}
+
+/* ─── SECTIONS ─── */
+section{padding:80px 5%}
+.sec-inner{max-width:1160px;margin:auto}
+.eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--green-mid);margin-bottom:10px;
+}
+.sec-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(26px,3vw,38px);font-weight:800;
+  color:var(--text);line-height:1.2;margin-bottom:14px;
+}
+.sec-sub{font-size:16px;color:var(--text-mid);line-height:1.75;max-width:540px}
+
+/* ─── ABOUT ─── */
+#about{background:var(--cream)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.about-body{font-size:15px;color:var(--text-mid);line-height:1.8}
+.about-body p+p{margin-top:14px}
+.reg-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--green-light);border:1px solid var(--border);
+  color:var(--green);font-size:13px;font-weight:600;
+  padding:8px 16px;border-radius:var(--r-sm);margin-top:20px;
+}
+.obj-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.obj-item{
+  display:flex;align-items:flex-start;gap:12px;
+  background:#fff;border-radius:var(--r);padding:14px 16px;
+  border:1px solid var(--border);
+}
+.obj-dot{
+  width:20px;height:20px;border-radius:50%;background:var(--green-light);
+  color:var(--green);display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px;
+}
+.obj-item p{font-size:14px;color:var(--text-mid);line-height:1.6}
+
+/* FOUNDER / TEAM */
+.founder-card{
+  background:#fff;border-radius:16px;padding:28px;
+  border:1px solid var(--border);display:flex;gap:20px;align-items:flex-start;
+  margin-top:32px;
+}
+.founder-avatar{
+  width:60px;height:60px;border-radius:50%;flex-shrink:0;
+  background:var(--green-light);color:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:22px;font-weight:800;
+}
+.founder-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--text)}
+.founder-role{font-size:13px;color:var(--green-mid);margin-top:2px;font-weight:600}
+.founder-bio{font-size:14px;color:var(--text-mid);line-height:1.7;margin-top:8px}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.team-card{
+  background:#fff;border-radius:var(--r);padding:18px;border:1px solid var(--border);
+  text-align:center;
+}
+.team-avatar{
+  width:48px;height:48px;border-radius:50%;margin:0 auto 10px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:15px;
+}
+.team-name{font-size:14px;font-weight:600;color:var(--text)}
+.team-role{font-size:12px;color:var(--text-light);margin-top:2px}
+
+/* ─── PROGRAMS ─── */
+#programs{background:#fff}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.prog-card{
+  border-radius:14px;overflow:hidden;
+  border:1px solid var(--border);transition:box-shadow .2s,transform .2s;
+}
+.prog-card:hover{box-shadow:var(--sh-hover);transform:translateY(-3px)}
+.prog-top{padding:24px 22px 16px;background:#fff}
+.prog-icon{
+  width:50px;height:50px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:14px;
+}
+.pi-green{background:var(--green-light)}
+.pi-saffron{background:var(--saffron-light)}
+.pi-earth{background:#EFEBE9}
+.prog-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--text);margin-bottom:8px}
+.prog-desc{font-size:13px;color:var(--text-mid);line-height:1.65}
+.prog-status{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;margin-top:12px;
+}
+.ps-ongoing{background:#E8F5E9;color:#2E7D32}
+.ps-completed{background:#E3F2FD;color:#1565C0}
+.ps-upcoming{background:#FFF3E0;color:#E65100}
+.prog-divider{border:none;border-top:1px solid var(--border)}
+.prog-meta{padding:12px 22px;font-size:12px;color:var(--text-light);display:flex;gap:12px;flex-wrap:wrap}
+.prog-meta span{display:flex;align-items:center;gap:4px}
+
+/* ─── IMPACT ─── */
+#impact{background:var(--cream)}
+.impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.success-stories{display:flex;flex-direction:column;gap:14px}
+.story-card{
+  background:#fff;border-radius:var(--r);padding:20px;
+  border:1px solid var(--border);
+}
+.story-top{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.story-avatar{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;
+}
+.sa-g{background:#C8E6C9;color:#1B5E20}
+.sa-o{background:#FFE0B2;color:#E65100}
+.sa-b{background:#BBDEFB;color:#1565C0}
+.story-name{font-size:14px;font-weight:700;color:var(--text)}
+.story-loc{font-size:12px;color:var(--text-light)}
+.story-quote{font-size:13px;color:var(--text-mid);line-height:1.65;font-style:italic}
+.awards-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.award-card{
+  background:#fff;border-radius:var(--r);padding:18px;
+  border:1px solid var(--border);border-left:3px solid var(--saffron);
+}
+.award-icon{font-size:22px;margin-bottom:8px}
+.award-title{font-size:14px;font-weight:700;color:var(--text)}
+.award-body{font-size:12px;color:var(--text-light);margin-top:4px;line-height:1.5}
+
+/* ─── DONATE ─── */
+#donate{background:var(--green);padding:72px 5%}
+.donate-inner{max-width:1160px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.donate-left h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,38px);font-weight:800;color:#fff;margin-bottom:14px}
+.donate-left p{font-size:15px;color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:28px}
+.donate-amounts{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.d-amt{
+  background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.28);
+  color:#fff;font-size:15px;font-weight:600;padding:10px 22px;
+  border-radius:var(--r-sm);cursor:pointer;transition:background .2s;
+}
+.d-amt:hover,.d-amt.active{background:rgba(255,255,255,.25);border-color:#fff}
+.donate-upi{
+  background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.20);
+  border-radius:var(--r);padding:20px;display:flex;align-items:center;gap:18px;margin-top:20px;
+}
+.upi-qr{
+  width:72px;height:72px;background:rgba(255,255,255,.90);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;
+}
+.upi-label{font-size:12px;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.5px}
+.upi-id{font-size:15px;font-weight:600;color:#fff;margin-top:2px;font-family:monospace}
+.donate-card{
+  background:#fff;border-radius:16px;padding:32px;box-shadow:0 8px 40px rgba(0,0,0,.15);
+}
+.donate-card h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:6px}
+.donate-card p{font-size:13px;color:var(--text-light);margin-bottom:22px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.form-group label{font-size:12px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:.4px}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;padding:10px 14px;border-radius:var(--r-sm);
+  border:1px solid #D0D0D0;font-size:14px;font-family:'Inter',sans-serif;
+  background:#fff;color:var(--text);outline:none;transition:border-color .2s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--green-mid)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-submit{
+  width:100%;padding:13px;background:var(--saffron);color:#fff;
+  border:none;border-radius:var(--r-sm);cursor:pointer;
+  font-size:15px;font-weight:600;font-family:'Inter',sans-serif;
+  transition:opacity .2s;
+}
+.form-submit:hover{opacity:.88}
+
+/* ─── VOLUNTEER ─── */
+#volunteer{background:#fff}
+.vol-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start}
+.vol-why{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+.vol-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:16px;background:var(--cream);border-radius:var(--r);border:1px solid var(--border);
+}
+.vol-icon{font-size:22px;flex-shrink:0}
+.vol-item h4{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
+.vol-item p{font-size:13px;color:var(--text-mid);line-height:1.6}
+
+/* ─── GALLERY ─── */
+#gallery{background:var(--cream)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.gal-item{
+  border-radius:var(--r);overflow:hidden;
+  background:var(--border);aspect-ratio:1;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:transform .2s;
+}
+.gal-item:hover{transform:scale(1.02)}
+.gal-item:first-child{grid-column:span 2;grid-row:span 2}
+.gal-ph{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;width:100%;height:100%;
+  background:linear-gradient(135deg,#C8E6C9,#A5D6A7);
+}
+.gal-ph:nth-child(even){background:linear-gradient(135deg,#FFE0B2,#FFCC80)}
+.gal-icon{font-size:30px}
+.gal-lbl{font-size:12px;color:var(--green);font-weight:600}
+
+/* ─── PARTNERS ─── */
+.partners-strip{background:var(--green-light);padding:40px 5%;text-align:center}
+.partners-inner{max-width:1160px;margin:auto}
+.partners-title{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green-mid);margin-bottom:20px}
+.partner-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.partner-chip{
+  background:#fff;border:1px solid var(--border);border-radius:var(--r-sm);
+  padding:10px 20px;font-size:13px;font-weight:600;color:var(--text);
+}
+
+/* ─── CONTACT ─── */
+#contact{background:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px}
+.contact-items{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+.c-item{display:flex;align-items:flex-start;gap:14px}
+.c-icon{
+  width:38px;height:38px;border-radius:9px;background:var(--green-light);
+  color:var(--green);display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+.c-lbl{font-size:11px;color:var(--text-light);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.c-val{font-size:15px;font-weight:500;color:var(--text)}
+.social-btns{display:flex;flex-wrap:wrap;gap:8px}
+.soc-btn{
+  display:flex;align-items:center;gap:7px;
+  padding:8px 14px;border-radius:var(--r-sm);border:1px solid var(--border);
+  text-decoration:none;font-size:13px;font-weight:600;color:var(--text);
+  transition:border-color .2s,background .2s;
+}
+.soc-btn:hover{background:var(--cream);border-color:var(--text-mid)}
+.map-ph{
+  width:100%;height:180px;border-radius:var(--r);
+  background:linear-gradient(135deg,var(--green-light),#C8E6C9);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:6px;margin-top:20px;
+  border:1px solid var(--border);text-decoration:none;cursor:pointer;
+}
+.map-ph span{font-size:13px;color:var(--green);font-weight:500}
+.cf-card{
+  background:var(--cream);border-radius:16px;
+  padding:32px 28px;border:1px solid var(--border);
+}
+.cf-card h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:6px}
+.cf-card p{font-size:13px;color:var(--text-light);margin-bottom:22px}
+.newsletter{
+  background:var(--green-light);border-radius:var(--r);padding:20px;
+  display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:18px;
+}
+.newsletter input{
+  flex:1;padding:10px 14px;border-radius:var(--r-sm);
+  border:1px solid var(--border);font-size:14px;font-family:'Inter',sans-serif;
+  min-width:180px;outline:none;
+}
+.newsletter input:focus{border-color:var(--green-mid)}
+.nl-btn{
+  background:var(--green);color:#fff;border:none;cursor:pointer;
+  padding:10px 20px;border-radius:var(--r-sm);font-size:14px;font-weight:600;
+  white-space:nowrap;
+}
+
+/* ─── FOOTER ─── */
+footer{background:#0D3311;color:rgba(255,255,255,.70);padding:56px 5% 24px}
+.foot-inner{max-width:1160px;margin:auto}
+.foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px}
+.foot-brand p{font-size:13px;line-height:1.75;color:rgba(255,255,255,.50);margin-top:10px}
+.foot-col h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.90);margin-bottom:14px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.foot-col ul li a{text-decoration:none;color:rgba(255,255,255,.52);font-size:13px;transition:color .2s}
+.foot-col ul li a:hover{color:#FFCC80}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.10);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px}
+.foot-bottom a{color:rgba(255,255,255,.45);text-decoration:none}
+.foot-bottom a:hover{color:#fff}
+.foot-links{display:flex;gap:18px}
+
+/* ─── CTA BAND ─── */
+.cta-band{background:var(--saffron);padding:56px 5%;text-align:center}
+.cta-band h2{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,34px);font-weight:800;color:#fff;margin-bottom:12px}
+.cta-band p{font-size:16px;color:rgba(255,255,255,.82);margin-bottom:28px}
+.cta-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.btn-white{background:#fff;color:var(--saffron);border:none;cursor:pointer;font-size:15px;font-weight:700;padding:13px 28px;border-radius:var(--r-sm);text-decoration:none;transition:opacity .2s}
+.btn-white:hover{opacity:.90}
+.btn-ow{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55);cursor:pointer;font-size:15px;font-weight:600;padding:13px 28px;border-radius:var(--r-sm);text-decoration:none}
+.btn-ow:hover{border-color:#fff}
+
+@media(max-width:900px){
+  .about-grid,.impact-grid,.donate-inner,.vol-grid,.contact-grid,.foot-grid{grid-template-columns:1fr}
+  .prog-grid,.team-grid,.awards-grid{grid-template-columns:1fr 1fr}
+  .impact-inner{grid-template-columns:1fr 1fr}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .gal-item:first-child{grid-column:span 1;grid-row:span 1}
+  .nav-links,.nav-donate{display:none}
+}
+@media(max-width:600px){
+  .prog-grid,.team-grid,.awards-grid,.impact-inner,.form-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#home">
+    <div class="nav-emblem">A</div>
+    <span class="nav-name">Asha Foundation</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#donate">Donate</a></li>
+    <li><a href="#volunteer">Volunteer</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#donate" class="nav-donate">❤️ Donate Now</a>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-leaf">
+    <div class="hero-leaf-graphic">
+      <div style="text-align:center;color:#fff;">
+        <div style="font-size:48px;margin-bottom:10px;">🌱</div>
+        <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:800;line-height:1.3;color:#FFCC80">"Every child deserves a future."</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.60);margin-top:10px;">— Asha Foundation Mission</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;">
+        <div style="background:rgba(255,255,255,.12);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:#FFCC80">50K+</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.60)">Lives Touched</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:#FFCC80">18+</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.60)">Years Active</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-reg">🏛️ Reg. No: MAHA/NGO/2006/00412 · Est. 2006</div>
+    <h1 class="hero-title">Lighting Lives,<br/><em>Building Futures</em></h1>
+    <p class="hero-sub">Asha Foundation works at the intersection of education, health, and rural empowerment — transforming lives across Maharashtra, one village at a time.</p>
+    <div class="hero-actions">
+      <a href="#donate" class="btn-saffron">❤️ Donate Today</a>
+      <a href="#volunteer" class="btn-ghost">🤝 Become a Volunteer</a>
+      <a href="#contact" class="btn-ghost">📄 Download Brochure</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="num">50,000+</div><div class="lbl">Beneficiaries Served</div></div>
+      <div class="hstat"><div class="num">200+</div><div class="lbl">Villages Reached</div></div>
+      <div class="hstat"><div class="num">48</div><div class="lbl">Active Programs</div></div>
+      <div class="hstat"><div class="num">1,200+</div><div class="lbl">Volunteers</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT STRIP -->
+<div class="impact-strip">
+  <div class="impact-inner">
+    <div class="istat"><div class="num">50K+</div><div class="lbl">Lives Transformed</div></div>
+    <div class="istat"><div class="num">₹2.4Cr</div><div class="lbl">Aid Distributed</div></div>
+    <div class="istat"><div class="num">18</div><div class="lbl">Years of Service</div></div>
+    <div class="istat"><div class="num">12</div><div class="lbl">Awards Won</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-inner">
+    <div class="about-grid">
+      <div>
+        <div class="eyebrow">About Us</div>
+        <h2 class="sec-title">Who We Are</h2>
+        <div class="about-body">
+          <p>Asha Foundation is a registered non-governmental organisation established in 2006 with a deep commitment to uplifting marginalised communities across rural Maharashtra. What began as a small literacy drive in Pune district has grown into a full-spectrum development organisation.</p>
+          <p><strong style="color:var(--text)">Our Vision:</strong> A society where every individual — regardless of birth, caste, or geography — lives with dignity, access, and opportunity.</p>
+          <p><strong style="color:var(--text)">Our Mission:</strong> To deliver sustainable, community-led programs in education, healthcare, women's empowerment, and livelihood development that create lasting change.</p>
+        </div>
+        <div class="reg-badge">✅ Registered NGO · FCRA Approved · 80G Tax Exemption</div>
+
+        <div style="margin-top:28px;">
+          <div class="eyebrow" style="margin-bottom:14px">Our Objectives</div>
+          <ul class="obj-list">
+            <li class="obj-item"><div class="obj-dot">1</div><p>Ensure quality education reaches every child in underserved communities</p></li>
+            <li class="obj-item"><div class="obj-dot">2</div><p>Promote preventive healthcare and nutrition in rural areas</p></li>
+            <li class="obj-item"><div class="obj-dot">3</div><p>Empower women through skill training and self-help group formation</p></li>
+            <li class="obj-item"><div class="obj-dot">4</div><p>Strengthen livelihood opportunities through vocational training</p></li>
+            <li class="obj-item"><div class="obj-dot">5</div><p>Advocate for environmental sustainability and clean-village campaigns</p></li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="eyebrow">Founder & Team</div>
+        <h2 class="sec-title">The People Behind the Work</h2>
+        <div class="founder-card">
+          <div class="founder-avatar">RS</div>
+          <div>
+            <div class="founder-name">Dr. Rajesh Sonawane</div>
+            <div class="founder-role">Founder & Executive Director</div>
+            <div class="founder-bio">A social entrepreneur with a PhD in Community Development, Dr. Sonawane spent a decade with UNICEF before founding Asha Foundation in 2006. His vision of community-owned development has guided every program since inception.</div>
+          </div>
+        </div>
+        <div class="eyebrow" style="margin-top:28px;margin-bottom:14px">Core Team</div>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar" style="background:#C8E6C9;color:#1B5E20">PM</div>
+            <div class="team-name">Priya Mane</div>
+            <div class="team-role">Program Director</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" style="background:#FFE0B2;color:#E65100">AK</div>
+            <div class="team-name">Amit Kulkarni</div>
+            <div class="team-role">Finance Head</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" style="background:#BBDEFB;color:#1565C0">SD</div>
+            <div class="team-name">Sunita Desai</div>
+            <div class="team-role">Field Coordinator</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" style="background:#E1BEE7;color:#6A1B9A">NP</div>
+            <div class="team-name">Nikhil Patil</div>
+            <div class="team-role">Communications</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" style="background:#B2EBF2;color:#006064">RG</div>
+            <div class="team-name">Renu Gadge</div>
+            <div class="team-role">Health Lead</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" style="background:#DCEDC8;color:#33691E">VJ</div>
+            <div class="team-name">Vijay Jadhav</div>
+            <div class="team-role">Legal & Compliance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="sec-inner">
+    <div class="eyebrow">Programs & Activities</div>
+    <h2 class="sec-title">What We Do</h2>
+    <p class="sec-sub" style="margin-bottom:36px">From rural classrooms to health camps — our programs are rooted in community need and designed for lasting impact.</p>
+    <div class="prog-grid">
+
+      <div class="prog-card">
+        <div class="prog-top">
+          <div class="prog-icon pi-green">📚</div>
+          <div class="prog-name">Bal Shiksha — Child Education</div>
+          <div class="prog-desc">Running 32 learning centres across Pune, Nashik, and Solapur districts. Free schooling, mid-day meals, and after-school tutoring for children from ages 5–14.</div>
+          <div class="prog-status ps-ongoing">● Ongoing</div>
+        </div>
+        <hr class="prog-divider" />
+        <div class="prog-meta">
+          <span>📍 3 Districts</span>
+          <span>👶 8,400 children</span>
+          <span>📅 Since 2008</span>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-top">
+          <div class="prog-icon pi-saffron">💊</div>
+          <div class="prog-name">Swasthya — Rural Health Camps</div>
+          <div class="prog-desc">Monthly health camps providing free diagnosis, medicine distribution, and maternal health consultations in 80+ villages with no access to primary healthcare.</div>
+          <div class="prog-status ps-ongoing">● Ongoing</div>
+        </div>
+        <hr class="prog-divider" />
+        <div class="prog-meta">
+          <span>🏥 80+ villages</span>
+          <span>👩 12,000 patients</span>
+          <span>📅 Since 2010</span>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-top">
+          <div class="prog-icon pi-green">👩‍💼</div>
+          <div class="prog-name">Shakti — Women Empowerment</div>
+          <div class="prog-desc">Vocational skill training in tailoring, food processing, and handicrafts — enabling women to establish micro-enterprises and achieve financial independence.</div>
+          <div class="prog-status ps-ongoing">● Ongoing</div>
+        </div>
+        <hr class="prog-divider" />
+        <div class="prog-meta">
+          <span>👩 3,200 women</span>
+          <span>🏘️ 45 villages</span>
+          <span>📅 Since 2012</span>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-top">
+          <div class="prog-icon pi-earth">🌊</div>
+          <div class="prog-name">Jal Jeevan — Water Security</div>
+          <div class="prog-desc">Constructed 140 rainwater harvesting structures and 28 check dams across drought-prone Marathwada, restoring water access to over 15,000 families.</div>
+          <div class="prog-status ps-completed">✔ Completed</div>
+        </div>
+        <hr class="prog-divider" />
+        <div class="prog-meta">
+          <span>💧 15K families</span>
+          <span>🏗️ 168 structures</span>
+          <span>📅 2015–2022</span>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-top">
+          <div class="prog-icon pi-saffron">🌿</div>
+          <div class="prog-name">Harit Maharashtra — Tree Plantation</div>
+          <div class="prog-desc">Annual tree plantation drives with school children and local communities. Over 2 lakh trees planted across 5 districts in partnership with the Forest Department.</div>
+          <div class="prog-status ps-ongoing">● Ongoing</div>
+        </div>
+        <hr class="prog-divider" />
+        <div class="prog-meta">
+          <span>🌳 2 Lakh trees</span>
+          <span>🏫 240 schools</span>
+          <span>📅 Since 2014</span>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <div class="prog-top">
+          <div class="prog-icon pi-green">📣</div>
+          <div class="prog-name">Jagruti — Awareness Campaigns</div>
+          <div class="prog-desc">Campaigns on child marriage prevention, sanitation, digital literacy, and voter awareness. Reached 1.2 lakh people through street plays, radio, and social media.</div>
+          <div class="prog-status ps-upcoming">⏳ Upcoming Batch</div>
+        </div>
+        <hr class="prog-divider" />
+        <div class="prog-meta">
+          <span>📢 1.2L reached</span>
+          <span>🎭 80 plays</span>
+          <span>📅 Since 2016</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="sec-inner">
+    <div class="eyebrow">Impact & Achievements</div>
+    <h2 class="sec-title">The Change We've Made</h2>
+    <div class="impact-grid" style="margin-top:36px">
+      <div>
+        <div class="eyebrow" style="margin-bottom:14px">Success Stories</div>
+        <div class="success-stories">
+          <div class="story-card">
+            <div class="story-top">
+              <div class="story-avatar sa-g">KW</div>
+              <div><div class="story-name">Kavita Waghmare</div><div class="story-loc">Solapur, Maharashtra</div></div>
+            </div>
+            <div class="story-quote">"Shakti program taught me tailoring. I now run my own boutique and earn ₹18,000 a month — I put three children through school entirely on my own."</div>
+          </div>
+          <div class="story-card">
+            <div class="story-top">
+              <div class="story-avatar sa-o">RS</div>
+              <div><div class="story-name">Ramesh Shinde</div><div class="story-loc">Nashik, Maharashtra</div></div>
+            </div>
+            <div class="story-quote">"Thanks to Bal Shiksha, I was the first child from my village to clear Class 10. I have now been selected for a government scholarship for engineering."</div>
+          </div>
+          <div class="story-card">
+            <div class="story-top">
+              <div class="story-avatar sa-b">MB</div>
+              <div><div class="story-name">Meena Bhosale</div><div class="story-loc">Aurangabad, Maharashtra</div></div>
+            </div>
+            <div class="story-quote">"The check dam built by Asha Foundation in our village ended the annual water crisis we had faced for 15 years. We can now grow a second crop every year."</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:14px">Awards & Recognitions</div>
+        <div class="awards-grid">
+          <div class="award-card">
+            <div class="award-icon">🏆</div>
+            <div class="award-title">National NGO Excellence Award 2022</div>
+            <div class="award-body">Awarded by the Ministry of Social Justice for outstanding rural development work</div>
+          </div>
+          <div class="award-card">
+            <div class="award-icon">🌟</div>
+            <div class="award-title">UN SDG Champion 2021</div>
+            <div class="award-body">Recognised by the United Nations for contributions to SDG 4 and SDG 6</div>
+          </div>
+          <div class="award-card">
+            <div class="award-icon">🎖️</div>
+            <div class="award-title">Maharashtra Ratna 2019</div>
+            <div class="award-body">State government award for excellence in women's empowerment programs</div>
+          </div>
+          <div class="award-card">
+            <div class="award-icon">🌿</div>
+            <div class="award-title">Green India Award 2020</div>
+            <div class="award-body">Awarded by the Ministry of Environment for the Harit Maharashtra tree campaign</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+          <div style="background:#fff;border-radius:var(--r);padding:18px;border:1px solid var(--border);text-align:center">
+            <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--green)">80G</div>
+            <div style="font-size:12px;color:var(--text-light);margin-top:4px">Tax Exemption</div>
+          </div>
+          <div style="background:#fff;border-radius:var(--r);padding:18px;border:1px solid var(--border);text-align:center">
+            <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--green)">FCRA</div>
+            <div style="font-size:12px;color:var(--text-light);margin-top:4px">Foreign Contribution Approved</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<section id="donate" style="padding:0">
+  <div class="donate-inner" style="max-width:1160px;margin:auto;padding:72px 5%">
+    <div class="donate-left">
+      <div class="eyebrow" style="color:rgba(255,255,255,.60)">Support Our Work</div>
+      <h2 class="donate-left" style="font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,38px);font-weight:800;color:#fff;margin-bottom:14px">Your donation changes a life today.</div>
+      <p style="font-size:15px;color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:24px">100% of your donation goes directly to field programs. We are 80G certified — your contribution is tax-deductible under Income Tax Act, Section 80G.</p>
+      <div class="donate-amounts">
+        <div class="d-amt">₹500</div>
+        <div class="d-amt active">₹1,000</div>
+        <div class="d-amt">₹2,500</div>
+        <div class="d-amt">₹5,000</div>
+        <div class="d-amt">₹10,000</div>
+        <div class="d-amt">Custom</div>
+      </div>
+      <div style="font-size:13px;color:rgba(255,255,255,.65);margin-bottom:18px">
+        ₹500 provides books for one child · ₹1,000 sponsors a health camp visit · ₹5,000 supports a women's skill kit
+      </div>
+      <div class="donate-upi">
+        <div class="upi-qr">📱</div>
+        <div>
+          <div class="upi-label">UPI / QR Code</div>
+          <div class="upi-id">asha.foundation@sbi</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.55);margin-top:4px">Scan or pay via any UPI app</div>
+        </div>
+      </div>
+      <div style="margin-top:16px;background:rgba(255,255,255,.10);border-radius:var(--r);padding:16px;font-size:13px;color:rgba(255,255,255,.70)">
+        🏦 Bank Transfer: <strong style="color:#fff">Asha Foundation</strong> · A/C: 12345678901 · IFSC: SBIN0001234 · Bank: SBI, FC Road, Pune
+      </div>
+    </div>
+    <div class="donate-card">
+      <h3>Make a Donation</h3>
+      <p>Secure online donation. 80G receipt sent to your email.</p>
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="Rahul" /></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Sharma" /></div>
+      </div>
+      <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@email.com" /></div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 98765 43210" /></div>
+      <div class="form-group"><label>Donation Amount (₹)</label><input type="number" placeholder="1000" /></div>
+      <div class="form-group"><label>Donate Towards</label>
+        <select>
+          <option>General Fund (Where Needed Most)</option>
+          <option>Bal Shiksha — Child Education</option>
+          <option>Swasthya — Health Camps</option>
+          <option>Shakti — Women Empowerment</option>
+          <option>Harit Maharashtra — Trees</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Pan Card Number (for 80G receipt)</label><input type="text" placeholder="ABCDE1234F" /></div>
+      <button class="form-submit" onclick="alert('Thank you for your generous support! Your 80G receipt will be emailed to you.')">❤️ Donate Securely</button>
+      <div style="text-align:center;font-size:11px;color:#999;margin-top:12px">🔒 Secured by Razorpay · 80G Receipt Guaranteed</div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section id="volunteer">
+  <div class="sec-inner">
+    <div class="vol-grid">
+      <div>
+        <div class="eyebrow">Join Our Team</div>
+        <h2 class="sec-title">Become a Volunteer</h2>
+        <p class="sec-sub">Whether you have a weekend or a year, your time creates real impact. Join 1,200+ volunteers already working with us.</p>
+        <div class="vol-why">
+          <div class="vol-item">
+            <div class="vol-icon">🧑‍🏫</div>
+            <div><h4>Teach & Mentor</h4><p>Conduct classes at our learning centres or mentor adolescent girls in career planning sessions.</p></div>
+          </div>
+          <div class="vol-item">
+            <div class="vol-icon">💻</div>
+            <div><h4>Digital & Tech Skills</h4><p>Help us with website, social media, data management, or digital literacy workshops in rural schools.</p></div>
+          </div>
+          <div class="vol-item">
+            <div class="vol-icon">🏥</div>
+            <div><h4>Healthcare Volunteer</h4><p>Doctors, nurses, and paramedical volunteers are warmly welcomed for our monthly health camps.</p></div>
+          </div>
+          <div class="vol-item">
+            <div class="vol-icon">🎨</div>
+            <div><h4>Creative & Events</h4><p>Help organise awareness campaigns, annual events, or design communication materials.</p></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="cf-card">
+          <h3>Volunteer Registration</h3>
+          <p>We'll match your skills to the right program and reach out within 3 working days.</p>
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" placeholder="Priya" /></div>
+            <div class="form-group"><label>Last Name</label><input type="text" placeholder="Kulkarni" /></div>
+          </div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="you@email.com" /></div>
+          <div class="form-group"><label>Phone</label><input type="tel" placeholder="+91 98765 43210" /></div>
+          <div class="form-group"><label>City</label><input type="text" placeholder="Pune" /></div>
+          <div class="form-group"><label>Area of Interest</label>
+            <select>
+              <option>Education / Teaching</option>
+              <option>Healthcare</option>
+              <option>Women Empowerment</option>
+              <option>Environment</option>
+              <option>Digital / Tech</option>
+              <option>Fundraising</option>
+              <option>Event Management</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Availability</label>
+            <select>
+              <option>Weekends Only</option>
+              <option>Weekdays</option>
+              <option>Full Time (1–3 months)</option>
+              <option>Remote / Online</option>
+            </select>
+          </div>
+          <button class="form-submit" style="background:var(--green-mid)" onclick="alert('Thank you! Our volunteer coordinator will contact you within 3 days.')">🤝 Register as Volunteer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="sec-inner">
+    <div class="eyebrow">Media & Gallery</div>
+    <h2 class="sec-title">Life in the Field</h2>
+    <p class="sec-sub" style="margin-bottom:28px">A glimpse of our programs, camps, community events, and the faces we work for.</p>
+    <div class="gal-grid">
+      <div class="gal-item"><div class="gal-ph"><div class="gal-icon">🏫</div><div class="gal-lbl">Learning Centre</div></div></div>
+      <div class="gal-item"><div class="gal-ph" style="background:linear-gradient(135deg,#FFE0B2,#FFCC80)"><div class="gal-icon">💊</div><div class="gal-lbl" style="color:var(--saffron)">Health Camp</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><div class="gal-icon">🌳</div><div class="gal-lbl">Tree Plantation</div></div></div>
+      <div class="gal-item"><div class="gal-ph" style="background:linear-gradient(135deg,#FFE0B2,#FFCC80)"><div class="gal-icon">👩‍💼</div><div class="gal-lbl" style="color:var(--saffron)">Shakti Workshop</div></div></div>
+      <div class="gal-item"><div class="gal-ph"><div class="gal-icon">🏆</div><div class="gal-lbl">Award Ceremony</div></div></div>
+    </div>
+    <p style="font-size:12px;color:var(--text-light);text-align:center;margin-top:14px">Replace placeholders with your actual program photos and videos.</p>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<div class="partners-strip">
+  <div class="partners-inner">
+    <div class="partners-title">Our Partners & Collaborators</div>
+    <div class="partner-logos">
+      <div class="partner-chip">UNICEF India</div>
+      <div class="partner-chip">NABARD</div>
+      <div class="partner-chip">Govt. of Maharashtra</div>
+      <div class="partner-chip">Tata Trusts</div>
+      <div class="partner-chip">HDFC Bank CSR</div>
+      <div class="partner-chip">Infosys Foundation</div>
+      <div class="partner-chip">District Collectorate</div>
+      <div class="partner-chip">NSDC</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div style="max-width:640px;margin:auto">
+    <h2>Together, we can reach more lives.</h2>
+    <p>A monthly gift of just ₹500 sends a child to school for a year. It takes 2 minutes to set up.</p>
+    <div class="cta-actions">
+      <a href="#donate" class="btn-white">❤️ Donate Monthly</a>
+      <a href="#volunteer" class="btn-ow">🤝 Volunteer With Us</a>
+      <a href="#contact" class="btn-ow">🤝 Partner / Sponsor</a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-inner">
+    <div class="eyebrow">Get in Touch</div>
+    <h2 class="sec-title">Contact Us</h2>
+    <div class="contact-grid" style="margin-top:36px">
+      <div>
+        <div class="contact-items">
+          <div class="c-item"><div class="c-icon">📞</div><div><div class="c-lbl">Phone</div><div class="c-val">+91 98765 43210 / +91 98765 43211</div></div></div>
+          <div class="c-item"><div class="c-icon">✉️</div><div><div class="c-lbl">Email</div><div class="c-val">info@ashafoundation.org.in</div></div></div>
+          <div class="c-item"><div class="c-icon">📍</div><div><div class="c-lbl">Head Office</div><div class="c-val">2nd Floor, Sewa Bhavan, Karve Road, Pune – 411004, Maharashtra</div></div></div>
+          <div class="c-item"><div class="c-icon">🕐</div><div><div class="c-lbl">Office Hours</div><div class="c-val">Mon – Sat · 9 AM – 6 PM</div></div></div>
+          <div class="c-item"><div class="c-icon">🏛️</div><div><div class="c-lbl">Registration No.</div><div class="c-val">MAHA/NGO/2006/00412 · FCRA: 083780123</div></div></div>
+        </div>
+        <div class="eyebrow" style="margin-bottom:12px">Follow Our Work</div>
+        <div class="social-btns">
+          <a href="#" class="soc-btn">💬 WhatsApp</a>
+          <a href="#" class="soc-btn">📸 Instagram</a>
+          <a href="#" class="soc-btn">👍 Facebook</a>
+          <a href="#" class="soc-btn">💼 LinkedIn</a>
+          <a href="#" class="soc-btn">▶️ YouTube</a>
+        </div>
+        <a href="https://maps.google.com" target="_blank" class="map-ph">
+          <span style="font-size:28px">🗺️</span>
+          <span>View on Google Maps · Karve Road, Pune</span>
+        </a>
+      </div>
+      <div>
+        <div class="cf-card">
+          <h3>Send a Message</h3>
+          <p>For general inquiries, partnerships, or media requests.</p>
+          <div class="form-row">
+            <div class="form-group"><label>Name</label><input type="text" placeholder="Your full name" /></div>
+            <div class="form-group"><label>Phone</label><input type="tel" placeholder="+91 98765 43210" /></div>
+          </div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="you@email.com" /></div>
+          <div class="form-group"><label>Subject</label>
+            <select>
+              <option>General Inquiry</option>
+              <option>Donation / Sponsorship</option>
+              <option>Volunteer Inquiry</option>
+              <option>Partnership / Collaboration</option>
+              <option>Media / Press</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Message</label><textarea style="min-height:90px" placeholder="Write your message here..."></textarea></div>
+          <button class="form-submit" style="background:var(--green-mid)" onclick="alert('Thank you! We will respond within 2 working days.')">Send Message</button>
+          <div class="newsletter" style="margin-top:18px">
+            <div style="font-size:13px;font-weight:600;color:var(--green);white-space:nowrap">📩 Newsletter</div>
+            <input type="email" placeholder="Your email address" />
+            <button class="nl-btn">Subscribe</button>
+          </div>
+          <div style="text-align:center;margin-top:14px">
+            <a href="#" style="font-size:13px;color:var(--green-mid);font-weight:600;text-decoration:none">📄 Download NGO Brochure (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--saffron);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:800;font-size:16px;color:#fff">A</div>
+          <span style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff">Asha Foundation</span>
+        </div>
+        <p>Lighting lives and building futures since 2006. A registered NGO working in education, health, and rural empowerment across Maharashtra.<br/><br/>Reg. No: MAHA/NGO/2006/00412 · FCRA Approved · 80G Certified</p>
+      </div>
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#donate">Donate</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Get Involved</h4>
+        <ul>
+          <li><a href="#volunteer">Volunteer</a></li>
+          <li><a href="#donate">Sponsorship</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#">Annual Reports</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Refund Policy</a></li>
+          <li><a href="#">80G Certificate</a></li>
+          <li><a href="#">Audit Reports</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2024 Asha Foundation. All rights reserved. · CIN: U85300MH2006NPL000412</span>
+      <div class="foot-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.d-amt').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.d-amt').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
